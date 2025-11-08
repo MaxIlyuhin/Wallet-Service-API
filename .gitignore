@@ -1,0 +1,15 @@
+venv/
+.env
+
+*.db
+
+__pycache__/
+*.pyc
+
+alembic/__pycache__/
+alembic/versions/__pycache__/
+
+.vscode/
+.idea/
+
+*.log
