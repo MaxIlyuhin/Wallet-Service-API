@@ -8,10 +8,11 @@ from uuid import UUID
 
 async def create_wallet(
         new_wallet: WalletCreate,
-        session: AsyncSession
+        session: AsyncSession,
+        wallet_id: UUID
 ) -> Wallet:
     new_wallet_data = new_wallet.dict()
-    db_wallet = Wallet(**new_wallet_data)
+    db_wallet = Wallet(id=wallet_id, **new_wallet_data)
     session.add(db_wallet)
     await session.commit()
     await session.refresh(db_wallet)
@@ -28,4 +29,3 @@ async def get_wallet(
         )
     )
     return db_wallet.scalar_one_or_none()
-
