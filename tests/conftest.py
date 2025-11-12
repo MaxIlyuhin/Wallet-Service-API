@@ -16,11 +16,11 @@ load_dotenv('.test.env')
 if sys.platform == 'win32':
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-# Тестовая база данных из .test.env
+# Используем переменную из окружения Docker
 TEST_DATABASE_URL = os.getenv("DATABASE_TEST_URL")
 
 if not TEST_DATABASE_URL:
-    raise ValueError("DATABASE_TEST_URL not found in .test.env")
+    raise ValueError("DATABASE_TEST_URL not found in environment")
 
 test_engine = create_async_engine(TEST_DATABASE_URL)
 TestingSessionLocal = sessionmaker(
