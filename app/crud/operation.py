@@ -1,5 +1,4 @@
 from sqlalchemy import select
-from time import sleep
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.models.wallet import Wallet
 from app.models.operation import Operation, OperationType
@@ -44,7 +43,6 @@ async def create_operation(
     )
 
     session.add(db_operation)
-    sleep(20)
     await session.commit()
     await session.refresh(wallet)
     await session.refresh(db_operation)

@@ -1,15 +1,33 @@
+# Virtual environment
 venv/
 .env
+.test.env
 
-*.db
-
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
 
+# Database
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+#alembic
 alembic/__pycache__/
 alembic/versions/__pycache__/
 
-.vscode/
-.idea/
-
+#other
 *.log
